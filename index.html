@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --primary-color: #ffca7b;
+      --secondary-color: #663a00;
+      --accent-color: #151515;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.7rem 6%;
+      background-color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    .navbar .logo {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-style: italic;
+    }
+
+    .navbar-nav a {
+      color: var(--accent-color);
+      display: inline-block;
+      font-size: 1.2rem;
+      margin: 0 0.8rem;
+    }
+
+    .navbar-nav a:hover {
+      color: var(--secondary-color);
+      filter: drop-shadow(0 0 5px var(--accent-color));
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav a::after {
+      content: "";
+      display: block;
+      padding-bottom: 0.099rem;
+      border-bottom: 0.01rem solid var(--accent-color);
+      background-color: var(--secondary-color);
+      transform: scaleX(0);
+      transition: 0.3s linear;
+    }
+
+    .navbar-nav a:hover::after {
+      transform: scaleX(0.8);
+      transition: 0.3s linear;
+    }
+
+    .navbar-extra a {
+      color: var(--accent-color);
+      margin: 0 0.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-extra a:hover {
+      color: var(--secondary-color);
+      filter: drop-shadow(0 0 5px var(--accent-color));
+      transition: all 0.3s ease-in-out;
+    }
+
+    #menu {
+      display: none;
+    }
+    @media (max-width: 1366px) {
+      html {
+        font-size: 75%;
+      }
+    }
+
+    @media (max-width: 757px) {
+      html {
+        font-size: 62.5%;
+      }
+      #menu {
+        display: inline-block;
+      }
+
+      .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: rgb(53, 53, 53);
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s ease-in-out;
+      }
+
+      .navbar-nav.active {
+        right: -20%;
+      }
+
+      .navbar-nav a {
+        display: block;
+        padding: 1rem 2rem;
+        color: var(--bg-color);
+      }
+
+      .navbar-nav a:hover {
+        color: rgb(255, 226, 185);
+      }
+
+      .navbar-nav a::after {
+        transform-origin: 0 0;
+        background-color: rgb(255, 226, 185);
+      }
+
+      .navbar-nav a:hover:after {
+        transform: scaleX(0.4);
+      }
+    }
+
+    @media (max-width: 450px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    @media (max-width: 230px) {
+      html {
+        font-size: 42.5%;
+      }
+    }
+  </style>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo"
+        >Warkop <span style="color: rgb(0, 0, 0)">Inyonk.</span></a
+      >
+      <div class="navbar-nav">
+        <a href="#">Beranda</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Menu</a>
+        <a href="#">Kontak</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="search" f
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="#" id="shopping" f
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="#" id="menu" f><i class="fa-solid fa-bars" id="bars"></i></a>
+      </div>
+    </nav>
+  </body>
+  <script>
+    const navbarnav = document.querySelector(".navbar-nav");
+    document.querySelector("#menu").onclick = () => {
+      navbarnav.classList.toggle("active");
+    };
+
+    const menu = document.querySelector("#menu");
+
+    document.addEventListener("click", function(e){
+        if(!menu.contains(e.target) && !navbarnav.contains(e.target)){
+            navbarnav.classList.remove("active");
+        }
+    })
+  </script>
+</html>
