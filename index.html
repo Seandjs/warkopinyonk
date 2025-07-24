@@ -15,10 +15,24 @@
   </head>
   <style>
     :root {
-      --bg-color: #ffffff;
-      --primary-color: #ffca7b;
-      --secondary-color: #663a00;
-      --accent-color: #151515;
+      --background: #000000;
+      --surface: #1e1e1e;
+      --header: #1f1b16;
+
+      --text: #ffffff;
+      --text-secondary: #cccccc;
+
+      --primary: #f9a825;
+      --hover: #ffc107;
+      --dark: #ffb300;
+
+      --link: #ffffff;
+      --link-hover: #f9a825;
+      --link-active: #a1887f;
+
+      --button-bg: #f9a825;
+      --button-text: #121212;
+      --button-hover: #ffc107;
     }
 
     * {
@@ -26,19 +40,33 @@
       padding: 0;
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+      font-size: 90%;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--background);
+      min-height: 5000px;
+      color: var(--text);
+    }
+
+    p {
+      color: white;
     }
 
     a {
       text-decoration: none;
+      color: var(--text);
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.7rem 6%;
-      background-color: var(--primary-color);
-      border-bottom: 2px solid var(--secondary-color);
+      padding: 1.5rem 6%;
+      background-color: var(--header);
+      border-bottom: 2px solid var(--background);
       position: fixed;
       top: 0;
       left: 0;
@@ -47,22 +75,22 @@
     }
 
     .navbar .logo {
-      color: var(--secondary-color);
+      color: var(--text);
       font-size: 1.8rem;
       font-weight: 800;
       font-style: italic;
     }
 
     .navbar-nav a {
-      color: var(--accent-color);
+      color: var(--text);
       display: inline-block;
       font-size: 1.2rem;
       margin: 0 0.8rem;
     }
 
     .navbar-nav a:hover {
-      color: var(--secondary-color);
-      filter: drop-shadow(0 0 5px var(--accent-color));
+      color: var(--primary);
+      filter: drop-shadow(0 0 5px var(--link-hover));
       transition: all 0.3s ease;
     }
 
@@ -70,8 +98,8 @@
       content: "";
       display: block;
       padding-bottom: 0.099rem;
-      border-bottom: 0.01rem solid var(--accent-color);
-      background-color: var(--secondary-color);
+      border-bottom: 0.01rem solid var(--text);
+      background-color: var(--primary);
       transform: scaleX(0);
       transition: 0.3s linear;
     }
@@ -82,20 +110,242 @@
     }
 
     .navbar-extra a {
-      color: var(--accent-color);
+      font-size: 15px;
+      color: var(--text);
       margin: 0 0.5rem;
       transition: all 0.3s ease-in-out;
     }
 
     .navbar-extra a:hover {
-      color: var(--secondary-color);
-      filter: drop-shadow(0 0 5px var(--accent-color));
+      color: var(--primary);
+      filter: drop-shadow(0 0 5px var(--link-hover));
       transition: all 0.3s ease-in-out;
     }
 
     #menu {
       display: none;
     }
+
+    .home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .home::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("properties/kapi.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transform: scaleX(-1);
+      z-index: -1;
+    }
+
+    .home::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(
+        0deg,
+        rgba(1, 1, 3, 1) 8%,
+        rgba(255, 255, 255, 0) 50%
+      );
+    }
+
+    .content {
+      max-width: 60rem;
+      padding: 1.4rem 7%;
+    }
+
+    .content h1 {
+      font-size: 5em;
+      color: var(--text);
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+      line-height: 1.2;
+    }
+
+    .content p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      line-height: 1.4;
+      text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+      font-weight: 100;
+      mix-blend-mode: difference;
+    }
+
+    .content .cta {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      font-size: 1.4rem;
+      background-color: var(--button-bg);
+      border-radius: 0.5rem;
+      box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+      z-index: 50;
+    }
+
+    .about,
+    .menus,
+    .contact {
+      padding: 10rem 7% 1.4rem;
+    }
+
+    .about h2,
+    .menus h2,
+    .contact h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+
+    .about h2 span,
+    .menus h2 span,
+    .contact h2 span {
+      color: var(--primary);
+    }
+
+    .about .row {
+      display: flex;
+    }
+
+    .about .row .about-img {
+      flex: 1 1 45rem;
+    }
+
+    .about .row .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+
+    .about .row .content {
+      flex: 1 1 35rem;
+      padding: 0 1rem;
+    }
+
+    .about .row .content h3 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .about .row .content p {
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+      font-weight: 100;
+      line-height: 1.6;
+    }
+
+    .menus h2,
+    .contact h2 {
+      margin-bottom: 1rem;
+    }
+
+    .menus p,
+    .contact p {
+      text-align: center;
+      max-width: 30rem;
+      margin: auto;
+      font-weight: 100;
+      line-height: 1.6;
+    }
+
+    .menus .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5rem;
+      justify-content: center;
+    }
+
+    .menus-card {
+      text-align: center;
+      flex: 1 1 16rem;
+      margin: 1rem;
+    }
+
+    .menus-card img {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .menus-card-title {
+      font-size: 1.3rem;
+      margin: 1.5rem auto 0.5rem;
+    }
+
+    .menus .row .menus-card-price {
+      font-size: 1rem;
+      margin: 1rem auto 0.5rem;
+    }
+
+    .contact .row {
+      display: flex;
+      margin-top: 2rem;
+      background-color: var(--surface);
+      flex-wrap: wrap;
+    }
+
+    .contact .row .map {
+      flex: 1 1 45rem;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contact .row form {
+      flex: 1 1 45rem;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .contact .row form .input-group {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      background-color: var(--background);
+      border: 1px solid var(--text-secondary);
+    }
+
+    .contact .row form .input-group input {
+      width: 100%;
+      padding: 2rem;
+      background: none;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .contact .row form .input-group i {
+      width: 16%;
+      font-size: 1rem;
+      background: none;
+    }
+
+    .contact .row form .btn {
+      margin-top: 3rem;
+      padding: 1rem 3rem;
+      font-size: 1.7rem;
+      background-color: var(--primary);
+      display: inline-block;
+    }
+
     @media (max-width: 1366px) {
       html {
         font-size: 75%;
@@ -104,7 +354,7 @@
 
     @media (max-width: 757px) {
       html {
-        font-size: 62.5%;
+        font-size: 64.5%;
       }
       #menu {
         display: inline-block;
@@ -114,7 +364,7 @@
         position: absolute;
         top: 100%;
         right: -100%;
-        background-color: rgb(53, 53, 53);
+        background-color: #1e1e1e;
         width: 30rem;
         height: 100vh;
         transition: 0.3s ease-in-out;
@@ -127,7 +377,7 @@
       .navbar-nav a {
         display: block;
         padding: 1rem 2rem;
-        color: var(--bg-color);
+        color: var(--text);
       }
 
       .navbar-nav a:hover {
@@ -142,6 +392,28 @@
       .navbar-nav a:hover:after {
         transform: scaleX(0.4);
       }
+
+      .about .row {
+        flex-wrap: wrap;
+      }
+
+      .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .about .row .content {
+        padding: 0;
+      }
+
+      .about .row .content h3 {
+        font-size: 2rem;
+      }
+    }
+
+    .about .row .content p {
+      font-size: 1.6rem;
     }
 
     @media (max-width: 450px) {
@@ -162,10 +434,10 @@
         >Warkop <span style="color: rgb(0, 0, 0)">Inyonk.</span></a
       >
       <div class="navbar-nav">
-        <a href="#">Beranda</a>
-        <a href="#">Tentang Kami</a>
-        <a href="#">Menu</a>
-        <a href="#">Kontak</a>
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menus">Menu</a>
+        <a href="#contact">Kontak</a>
       </div>
       <div class="navbar-extra">
         <a href="#" id="search" f
@@ -177,6 +449,110 @@
         <a href="#" id="menu" f><i class="fa-solid fa-bars" id="bars"></i></a>
       </div>
     </nav>
+    <section class="home" id="home">
+      <main class="content">
+        <h1 style="color: #ffffff">
+          <b>Ra Ngopi, Ra</b><span> <b style="color: #f2ad35"> Mbois</b></span>
+        </h1>
+        <p>Teka kopi nggo kabeh, teka Warkop Inyonk gawe ko'</p>
+        <a href="#" class="cta">Beli Sekarang</a>
+      </main>
+    </section>
+    <section id="about" class="about">
+      <h2>Tentang <span>Kami</span></h2>
+      <div class="row">
+        <div class="about-img">
+          <img src="properties/kapafkapi.jpg" alt="" />
+        </div>
+        <div class="content">
+          <h3>Kenapa memilih kopi kami?</h3>
+          <p>
+            Kami menyediakan kopi berkualitas tinggi yang diproses dengan cinta
+            dan perhatian. Setiap cangkir kopi kami adalah hasil dari biji kopi
+            pilihan yang dipanggang dengan sempurna, memberikan rasa yang kaya
+            dan aroma yang menggoda.
+          </p>
+          <p>
+            Dengan suasana yang nyaman dan pelayanan yang ramah, kami ingin
+            menciptakan tempat di mana Anda dapat bersantai, berkumpul dengan
+            teman-teman, atau bahkan bekerja sambil menikmati secangkir kopi
+            favorit Anda.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="menus" class="menus">
+      <h2>Menu <span>Kami</span></h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        mollitia molestias Lorem ipsum dolor sit amet consectetur adipisicing
+        elit.
+      </p>
+
+      <div class="row">
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/kapipati.jpg" alt="Espresso" />
+          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <p class="menus-card-price">IDR 15k</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <h2>Kontak <span>Kami</span></h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        mollitia molestas.
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d946.8459894220953!2d112.73355172438622!3d-7.305518917029628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb00499f39b1%3A0x48b33cac7c139972!2sMarkas%20Badan%20Pengawas%20Jawir%20SMEAS!5e1!3m2!1sid!2sid!4v1753371999788!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+        <form action="">
+          <div class="input-group">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" placeholder="Nama" />
+          </div>
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="text" placeholder="E-mail" />
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-phone"></i>
+            <input type="text" placeholder="Phone Number" />
+          </div>
+          <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
   </body>
   <script>
     const navbarnav = document.querySelector(".navbar-nav");
@@ -186,10 +562,10 @@
 
     const menu = document.querySelector("#menu");
 
-    document.addEventListener("click", function(e){
-        if(!menu.contains(e.target) && !navbarnav.contains(e.target)){
-            navbarnav.classList.remove("active");
-        }
-    })
+    document.addEventListener("click", function (e) {
+      if (!menu.contains(e.target) && !navbarnav.contains(e.target)) {
+        navbarnav.classList.remove("active");
+      }
+    });
   </script>
 </html>
