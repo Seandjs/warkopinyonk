@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Warkop Inyonk</title>
+    <link rel="icon" href="properties/logo.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -142,11 +143,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("properties/kapi.jpg");
+      background-image: url("properties/kapikap.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      transform: scaleX(-1);
+      /* transform: scaleX(-1); */
       z-index: -1;
     }
 
@@ -294,6 +295,13 @@
       height: 16rem;
       border-radius: 50%;
       object-fit: cover;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menus-card img:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
     }
 
     .menus-card-title {
@@ -365,7 +373,8 @@
       border: 1px solid var(--primary);
     }
 
-    .contact p {
+    .contact p,
+    .menus p {
       text-align: center;
       font-size: 1.3rem;
       margin-top: 1rem;
@@ -526,9 +535,9 @@
     <section id="menus" class="menus">
       <h2>Menu <span>Kami</span></h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        mollitia molestias Lorem ipsum dolor sit amet consectetur adipisicing
-        elit.
+        Kami menyajikan berbagai hidangan lezat mulai dari masakan tradisional
+        hingga modern. Semua bahan dipilih dengan cermat dan diolah oleh koki
+        berpengalaman untuk memberikan cita rasa terbaik bagi Anda.
       </p>
 
       <div class="row">
@@ -592,8 +601,12 @@
     </section>
     <footer>
       <div class="social">
-        <a href="https://www.instagram.com/sean_ddd/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://github.com/Seandjs"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/sean_ddd/"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://github.com/Seandjs"
+          ><i class="fa-brands fa-github"></i
+        ></a>
       </div>
       <div class="links">
         <a href="#home">Beranda</a>
