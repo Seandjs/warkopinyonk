@@ -47,7 +47,6 @@
     body {
       font-family: "Poppins", sans-serif;
       background-color: var(--background);
-      min-height: 5000px;
       color: var(--text);
     }
 
@@ -189,14 +188,24 @@
     }
 
     .content .cta {
+      border: 1px solid var(--button-bg);
       margin-top: 1rem;
       display: inline-block;
       padding: 1rem 3rem;
       font-size: 1.4rem;
+      color: var(--button-text);
       background-color: var(--button-bg);
       border-radius: 0.5rem;
       box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+      transition: all 0.3s ease-in-out;
       z-index: 50;
+    }
+
+    .content .cta:hover {
+      border: 1px solid var(--button-hover);
+      background-color: var(--background);
+      color: var(--button-hover);
+      transition: all 0.3s ease-in-out;
     }
 
     .about,
@@ -341,9 +350,41 @@
     .contact .row form .btn {
       margin-top: 3rem;
       padding: 1rem 3rem;
+      cursor: pointer;
       font-size: 1.7rem;
       background-color: var(--primary);
       display: inline-block;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact .row form .btn:hover {
+      color: var(--primary);
+      background-color: var(--background);
+      border: 1px solid var(--primary);
+    }
+
+    .contact p {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .social {
+      font-size: 1.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    footer {
+      padding: 1rem;
+      background-color: var(--header);
+      padding: 1.5rem 3%;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--text-secondary);
     }
 
     @media (max-width: 1366px) {
@@ -431,7 +472,7 @@
   <body>
     <nav class="navbar">
       <a href="#" class="logo"
-        >Warkop <span style="color: rgb(0, 0, 0)">Inyonk.</span></a
+        >Warkop <span style="color: var(--primary)">Inyonk.</span></a
       >
       <div class="navbar-nav">
         <a href="#home">Beranda</a>
@@ -452,7 +493,8 @@
     <section class="home" id="home">
       <main class="content">
         <h1 style="color: #ffffff">
-          <b>Ra Ngopi, Ra</b><span> <b style="color: #f2ad35"> Mbois</b></span>
+          <b>Kopi Hitam, Wajah</b
+          ><span> <b style="color: #f2ad35"> Hitam</b></span>
         </h1>
         <p>Teka kopi nggo kabeh, teka Warkop Inyonk gawe ko'</p>
         <a href="#" class="cta">Beli Sekarang</a>
@@ -462,10 +504,10 @@
       <h2>Tentang <span>Kami</span></h2>
       <div class="row">
         <div class="about-img">
-          <img src="properties/kapafkapi.jpg" alt="" />
+          <img src="properties/adisound.jpg" alt="" />
         </div>
         <div class="content">
-          <h3>Kenapa memilih kopi kami?</h3>
+          <h3>Kenapa Warkop Inyonk?</h3>
           <p>
             Kami menyediakan kopi berkualitas tinggi yang diproses dengan cinta
             dan perhatian. Setiap cangkir kopi kami adalah hasil dari biji kopi
@@ -496,28 +538,23 @@
           <p class="menus-card-price">IDR 15k</p>
         </div>
         <div class="menus-card">
-          <img src="properties/kapipati.jpg" alt="Espresso" />
-          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <img src="properties/tehes.jpg" alt="Teh es" />
+          <h3 class="menus-card-title">~~Teh Es~~</h3>
+          <p class="menus-card-price">IDR 9k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/Cheeseburger.jpg" alt="Burger" />
+          <h3 class="menus-card-title">~~Borger~~</h3>
+          <p class="menus-card-price">IDR 18k</p>
+        </div>
+        <div class="menus-card">
+          <img src="properties/Mendoan.jpeg" alt="Mendoan" />
+          <h3 class="menus-card-title">~~Mendoan~~</h3>
           <p class="menus-card-price">IDR 15k</p>
         </div>
         <div class="menus-card">
-          <img src="properties/kapipati.jpg" alt="Espresso" />
-          <h3 class="menus-card-title">~~Espresso~~</h3>
-          <p class="menus-card-price">IDR 15k</p>
-        </div>
-        <div class="menus-card">
-          <img src="properties/kapipati.jpg" alt="Espresso" />
-          <h3 class="menus-card-title">~~Espresso~~</h3>
-          <p class="menus-card-price">IDR 15k</p>
-        </div>
-        <div class="menus-card">
-          <img src="properties/kapipati.jpg" alt="Espresso" />
-          <h3 class="menus-card-title">~~Espresso~~</h3>
-          <p class="menus-card-price">IDR 15k</p>
-        </div>
-        <div class="menus-card">
-          <img src="properties/kapipati.jpg" alt="Espresso" />
-          <h3 class="menus-card-title">~~Espresso~~</h3>
+          <img src="properties/americano.jpg" alt="Americano" />
+          <h3 class="menus-card-title">~~Americano~~</h3>
           <p class="menus-card-price">IDR 15k</p>
         </div>
       </div>
@@ -525,12 +562,12 @@
     <section id="contact" class="contact">
       <h2>Kontak <span>Kami</span></h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        mollitia molestas.
+        Tak kenal maka tak sayang, tak ngopi maka tak paham. Kontak kami kalau
+        mau ngobrol soal kopi, menu, atau kerja sama asoy!
       </p>
       <div class="row">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d946.8459894220953!2d112.73355172438622!3d-7.305518917029628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb00499f39b1%3A0x48b33cac7c139972!2sMarkas%20Badan%20Pengawas%20Jawir%20SMEAS!5e1!3m2!1sid!2sid!4v1753371999788!5m2!1sid!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121204.42628100883!2d112.63028163219244!3d-7.275441717366977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e1!3m2!1sid!2sid!4v1753412505590!5m2!1sid!2sid"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -553,6 +590,24 @@
         </form>
       </div>
     </section>
+    <footer>
+      <div class="social">
+        <a href="https://www.instagram.com/sean_ddd/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/Seandjs"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <div class="links">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menus">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <div class="credit">
+        <p>
+          created by <a href="#" style="color: var(--primary)">Bukan fano.</a>
+          | copyright &copy; 2025.
+        </p>
+      </div>
+    </footer>
   </body>
   <script>
     const navbarnav = document.querySelector(".navbar-nav");
